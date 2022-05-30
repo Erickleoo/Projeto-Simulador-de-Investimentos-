@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulador de investimentos -BRQ</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="profile" class="container">
+        <div class="form-image">
+            <img src="./img/img.png" alt="">
+        </div>
+        <div class="form">
+            <form action="/" method="get">
+                <div class="form-header">
+                    <div class="title">
+                        <h1>Simulador de investimentos</h1>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <div class="input-box">
+                        <label for="name"> Nome</label>
+                        <input id="name" type="text" name="name" placeholder="Digite seu nome">
+                    </div>
+
+                    <div class="input-box">
+                        <label for="age">Idade</label>
+                        <input id="age" type="number" name="age" placeholder="Digite sua Idade">
+                    </div>
+                    <div class="input-box">
+                        <label for="income">Renda Mensal</label>
+                        <input id="income" type="number" name="income" placeholder="Digite sua Renda Mensal">
+                    </div>    
+                </div>
+
+                <div class="gender-inputs">
+                    <div class="gender-title">
+                        <h6>Gênero</h6>
+                    </div>
+
+                    <div class="gender-group">
+                        <div class="gender-input">
+                            <input value="Feminino" id="female" type="radio" name="gender">
+                            <label  for="female">Feminino</label>
+                        </div>
+
+                        <div class="gender-input">
+                            <input value="Masculino" id="male" type="radio" name="gender">
+                            <label  for="male">Masculino</label>
+                        </div>
+
+                        <div class="gender-input">
+                            <input value="Outros" id="others" type="radio" name="gender">
+                            <label for="others">Outros</label>
+                        </div>
+
+                        <div class="gender-input">
+                            <input value="Prefiro não dizer" id="none" type="radio" name="gender">
+                            <label for="none">Prefiro não dizer</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="continue-button">
+                    <button onclick="personProfile()"><a href="#">Continuar</a> </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="questions" class="container" style="display: none">
+        <h2>Olá <span></span>, responda as perguntas abaixo:</h2>
+            <div class="question-flex">
+                <div class="question-inputs">
+                    <div class="question-title">
+                        <h6>Formação na área financeira?</h6>
+                    </div>
+
+                    <div class="question-group">
+                        <div class="question-input">
+                            <input value="formacao-1" class="question" type="radio" name="formacao">
+                            <label for="question"> Sim, sem experiência</label>
+                        </div>
+
+                        <div class="question-input">
+                            <input value="formacao-2" class="question" type="radio" name="formacao">
+                            <label for="question">Sim, com experiência</label>
+                        </div>
+
+                        <div class="question-input">
+                            <input value="formacao-3" class="question" type="radio" name="formacao">
+                            <label for="question">Não, mas tenho experiência</label>
+                        </div>
+
+                        <div class="question-input">
+                            <input value="formacao-4" class="question" type="radio" name="formacao">
+                            <label for="question">Não, com pouca experiência</label>
+                        </div>
+
+                        <div class="question-input">
+                            <input value="formacao-5" class="question" type="radio" name="formacao">
+                            <label for="question">Não, e não tenho experiência</label>
+                        </div>
+                    </div>                
+                </div>
+            </div>
+
+            <div class="question-flex">
+                <div class="question-title">
+                    <h6>Qual produto você conhece?</h6>
+                </div>
+                <div class="question-group">
+                    <div class="question-input">
+                        <input value="produto-1" class="question" type="radio" name="produto">
+                        <label for="question">Poupança, depósito a prazo</label>
+                    </div>
+
+                    <div class="question-input">
+                        <input value="produto-2" class="question" type="radio" name="produto">
+                        <label for="question">Tesouro Direto, renda variável</label>
+                    </div>
+
+                    <div class="question-input">
+                        <input value="produto-3" class="others" type="radio" name="produto">
+                        <label for="question">Produtos 1 e 2</label>
+                    </div>
+
+                    <div class="question-input">
+                        <input value="produto-4" class="question" type="radio" name="produto">
+                        <label for="question">Nunca investiu, mas conheço alguns produtos</label>
+                    </div>
+
+                    <div class="question-input">
+                        <input value="produto-5" class="question" type="radio" name="produto">
+                        <label for="question"> Nunca investi e não conheço nenhum</label>
+                    </div>
+                </div>                
+            </div>
+            <div class="continue-button">
+                <button onclick='profileAndInvest()'><a href="#">Continuar</a> </button>
+            </div>
+        </div>
+
+        <div id="rendafixa" class="container" style="display: none">
+            <h2>O seu perfil e investimento recomendados: <span></span></h2>
+            <div class="input-renda">
+                <div class="input-box-renda">
+                    <label for="number">Valor que irá investir:</label>
+                    <input id="capital" type="number" name="capital" placeholder="Capital">
+                </div>
+
+                <div class="input-box-renda">
+                    <label for="juros">Juros:</label>
+                    <input id="juros" type="number" name="juros" placeholder="Consultar % Poupança ou taxa SELIC">
+                </div>
+
+                <div class="input-box-renda">
+                    <label for="tempinvest">Tempo de Investimento:</label>
+                    <input id="tempinvest" type="number" name="tempinvest" placeholder="Tempo em meses">
+                </div>
+
+                <div class="input-box-renda">
+                    <label for="inflacao">Inflação: </label>
+                    <input id="inflacao" type="number" name="inflacao" placeholder="Informe a taxa de inflação">
+                </div>
+            </div>
+            <div class="simular-button">
+                <button onclick="simulateInvestFixed()"><a href="#">Simular</a> </button>
+            </div>
+        </div>
+
+        <div id="rendavariavel" class="container" style="display: none">
+            <h2>O seu perfil e investimento recomendados: <span></span></h2>
+            <div class="input-renda">
+                <div class="input-box-renda">
+                    <label for="number">Valor da ação na compra:</label>
+                    <input id="valorCompra" type="number" name="valorCompra" placeholder="Valor da ação no momento que pretende COMPRAR!">
+                </div>
+
+                <div class="input-box-renda">
+                    <label for="valorVenda">Valor da ação na venda:</label>
+                    <input id="valorVenda" type="number" name="valorVenda" placeholder="Valor da ação no momento que pretende VENDER!">
+                </div>
+
+                <div class="input-box-renda">
+                    <label for="qntAcoes">Quantidade de ações:</label>
+                    <input id="qntAcoes" type="number" name="qntAcoes" placeholder="Quantas ações comprou ou pretende comprar">
+                </div>
+            </div>
+            <div class="simular-button">
+                <button id="buttonVariavel" onclick="simulateInvestVar()"><a href="#">Simular</a> </button>
+            </div>
+        </div>
+
+        <div id="resultado" class="container result" style="display: none">
+            <div class="form-header">
+                <div class="title">
+                    <h2>Simulador de Investimentos</h2>
+                </div> 
+            </div> 
+            <h3 class="h3result">O seu perfil e investimento recomendados: <span class="perfilInvest"></span></h3> 
+            <div class="resultado-flex"> 
+                <div class="dados-pessoa">
+                    <h3>Dados Pessoais:</h3>
+                    <span></span> 
+                </div>
+                <div class="simule-invest">
+                    <h3>- Simulação de Investimento -</h3>
+                    <span></span> 
+                </div>  
+            </div>
+        </div>  
+  <script src="script.js"></script>
+</body>
+</html>
