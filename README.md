@@ -14,6 +14,7 @@ dos filhos ou até mesmo uma inesquecível viagem de férias.
   <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
 </p>
 
+<a href="https://erickleoo.github.io/Projeto-Simulador-de-Investimentos-/">Live Project</a>
 
 <br>
 
